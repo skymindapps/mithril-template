@@ -36,6 +36,6 @@ export class ItemListComponent implements ClassComponent {
   }
 
   private _navigate(item: Item): void {
-    console.log(item);
+    m.route.set(`/items/${item.id}`);
   }
 }

@@ -6,7 +6,7 @@ import {
 
 export const RouteConfig = {
   '/items': ItemListComponent,
-  '/items/:id': ItemDetailsComponent,
+  '/items/:key': ItemDetailsComponent, // key is a special parameter that ensures reload of the component https://mithril.js.org/route.html#key-parameter
   '/profile': ProfileComponent
 };
 

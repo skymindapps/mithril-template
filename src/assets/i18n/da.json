@@ -1,8 +1,16 @@
 {
   "values": {
+    "app.hello": "Hej",
+    "app.nav.items": "Dimser",
+    "app.nav.profile": "Profil",
+
     "profile.selectLanguage": "Vælg sprog",
     "profile.language.da": "Dansk",
     "profile.language.en": "English",
-    "profile.language.xx": "Nonsence"
+    "profile.language.xx": "Nonsens",
+
+    "itemDetails.title.label": "Titel",
+    "itemDetails.title.placeholder": "F.eks. 'Nummer 5'",
+    "itemDetails.save": "Gem"
   }
 }

@@ -1,8 +1,16 @@
 {
   "values": {
+    "app.hello": "Hello",
+    "app.nav.items": "Items",
+    "app.nav.profile": "Profile",
+
     "profile.selectLanguage": "Select language",
     "profile.language.da": "Dansk",
     "profile.language.en": "English",
-    "profile.language.xx": "Nonsense"
+    "profile.language.xx": "Nonsense",
+
+    "itemDetails.title.label": "Title",
+    "itemDetails.title.placeholder": "E.g.. 'Number 5'",
+    "itemDetails.save": "Save"
   }
 }

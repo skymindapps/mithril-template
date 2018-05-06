@@ -1,10 +1,13 @@
 import * as m from 'mithril';
-import { Children, ClassComponent, Vnode } from 'mithril';
+import { Children, ClassComponent, Vnode, VnodeDOM } from 'mithril';
 import * as t from 'i18n4v';
 import { Inject, IItemService, Item } from '../../../services';
 import { TYPES } from '../../../configs/injector.config';
 
-export class ItemDetailsComponent implements ClassComponent {
+interface Attrs {
+  key: string;
+}
+export class ItemDetailsComponent implements ClassComponent<Attrs> {
   @Inject(TYPES.ItemService)
   private _itemService: IItemService;
 
@@ -14,22 +17,28 @@ export class ItemDetailsComponent implements ClassComponent {
     this.item = { id: -1, title: '' };
   }
 
-  public view(vnode: Vnode): Children {
+  public view(vnode: Vnode<Attrs, this>): Children {
     return (
       <div class="item-details">
-        <label>
-          <span>{t('itemDetails.id.label')}:</span>
-          <input type="number" value={this.item.id} />
-        </label>
-        <label>
-          <span>{t('itemDetails.title.label')}:</span>
-          <input type="number" value={this.item.id} />
-        </label>
+        <div class="input">
+          <label>
+            <span>{t('itemDetails.title.label')}:</span><bR/>
+            <input type="text" placeholder={t('itemDetails.title.placeholder')} value={this.item.title} />
+          </label>
+        </div>
+        <button>{t('itemDetails.save')}</button>
       </div>
     );
   }
 
-  public oncreate(vnode: Vnode): any {
-    // something here to get the id of the item and then load it
+  public oncreate(vnode: VnodeDOM<Attrs, this>) {
+    const id = parseInt(vnode.attrs.key);
+    if (!isNaN(id)) {
+      const item = this._itemService.getById(id);
+      if (item) {
+        this.item.title = item.title;
+        m.redraw(); // because we don't have a true m.request
+      }
+    }
   }
 }

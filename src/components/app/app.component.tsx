@@ -4,7 +4,7 @@ import * as t from 'i18n4v';
 import { Inject } from '../../services';
 import { RouteConfig, RouteConfigDefault } from '../../configs/route.config';
 
-export interface Attrs {
+interface Attrs {
 	name: string;
 }
 
@@ -14,7 +14,13 @@ export class AppComponent implements ClassComponent<Attrs> {
 		return (
       <div class="app">
         <div>
-          Hello {vnode.attrs.name}
+          {t('app.hello')} {vnode.attrs.name}
+        </div>
+        <div class="navbar">
+          <ul>
+          <li><a href="#!/items">{t('app.nav.items')}</a></li>
+          <li><a href="#!/profile">{t('app.nav.profile')}</a></li>
+          </ul>
         </div>
         <div class="main-stage"/>
       </div>);
