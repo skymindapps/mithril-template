@@ -1,12 +1,16 @@
 import * as m from 'mithril';
 import { ClassComponent, Vnode } from 'mithril';
 import * as t from 'i18n4v';
-import { Inject, IItemService, Item } from '../../../services';
+import { Inject, IItemService, Item, IRouteService } from '../../../services';
 import { TYPES } from '../../../configs/injector.config';
 
 export class ItemListComponent implements ClassComponent {
   @Inject(TYPES.ItemService)
   private _itemService: IItemService;
+
+  @Inject(TYPES.RouteService)
+  private _routeService: IRouteService;
+
   private readonly _items: Item[];
 
   constructor() {
@@ -36,6 +40,6 @@ export class ItemListComponent implements ClassComponent {
   }
 
   private _navigate(item: Item): void {
-    m.route.set(`/items/${item.id}`);
+    this._routeService.navigate(`/items/${item.id}`);
   }
 }
