@@ -14,7 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "i18n4v": "^0.2.2",
-    "mithril": "1.1.6"
+    "mithril": "1.1.6",
+    "rxjs": "^6.1.0"
   },
   "devDependencies": {
     "@types/mithril": "1.1.12",
