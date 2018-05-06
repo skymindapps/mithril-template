@@ -1,4 +1,4 @@
-import { InjectorConfig } from './services';
+import { InjectorConfig } from './configs/injector.config';
 new InjectorConfig(); // initializes Injector registrations
 
 import * as m from 'mithril';
@@ -11,7 +11,7 @@ export class Index {
 	view() {
 		return (
 			<div>
-				<AppComponent name="Cat" />
+				<AppComponent name="Smølf" />
 			</div>
 		)
 	}

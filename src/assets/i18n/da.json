@@ -1,5 +1,8 @@
 {
   "values": {
-    "cat": "Kat"
+    "profile.selectLanguage": "Vælg sprog",
+    "profile.language.da": "Dansk",
+    "profile.language.en": "English",
+    "profile.language.xx": "Nonsence"
   }
 }

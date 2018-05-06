@@ -1,5 +1,8 @@
 {
   "values": {
-    "cat": "Cat"
+    "profile.selectLanguage": "Select language",
+    "profile.language.da": "Dansk",
+    "profile.language.en": "English",
+    "profile.language.xx": "Nonsense"
   }
 }
