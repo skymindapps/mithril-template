@@ -2,19 +2,22 @@ import * as m from 'mithril';
 import { Observable, Subject } from 'rxjs';
 
 export interface IRouteService {
-  currentUrl: Subject<string>;
+  readonly currentUrl: Observable<string>;
   navigate(url: string): void;
 }
 
 export class RouteService implements IRouteService {
-  readonly currentUrl: Subject<string>;
+  private _currentUrl: Subject<string>;
+  get currentUrl(): Observable<string> {
+    return this._currentUrl.asObservable();
+  }
 
   constructor() {
-    this.currentUrl = new Subject<string>();
+    this._currentUrl = new Subject<string>();
   }
 
   navigate(url: string): void {
     m.route.set(url);
-    this.currentUrl.next(url);
+    this._currentUrl.next(url);
   }
 }
