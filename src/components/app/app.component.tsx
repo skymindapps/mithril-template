@@ -34,18 +34,13 @@ export class AppComponent implements ClassComponent<Attrs> {
   }
 
   oncreate(vnode: Vnode<Attrs, this>) {
+    const mainStage = document.querySelector('.main-stage') as Element;
+    m.route(mainStage, RouteConfigDefault, RouteConfig);
+
+    this._setActiveMenu(this._routeService.getCurrentUrl());
     this._routeSubscription = this._routeService.currentUrl.subscribe(next => {
       this._setActiveMenu(next);
     });
-
-    const mainStage = document.querySelector('.main-stage') as Element;
-    m.route(mainStage, RouteConfigDefault, RouteConfig);
-    
-    let url = window.location.hash;
-    if (url.startsWith('#!')) {
-      url = url.substr(2);
-    }
-    this._setActiveMenu(url);
   }
 
   onremove(): void {
